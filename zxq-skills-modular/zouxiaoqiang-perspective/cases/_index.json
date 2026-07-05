@@ -1,0 +1,125 @@
+{
+  "version": "1.0",
+  "last_updated": "2026-06-08",
+  "total_cases": 3,
+  "status": "初始版本，后续持续扩充",
+
+  "categories": {
+    "目标管理": {
+      "description": "年度规划、目标设定、愿景孵化",
+      "cases": ["case_001"]
+    },
+    "时间管理": {
+      "description": "任务管理、日程安排、计划制定",
+      "cases": ["case_002"]
+    },
+    "拖延克服": {
+      "description": "拖延诊断、心理防御、执行障碍",
+      "cases": ["case_003"]
+    },
+    "精力管理": {
+      "description": "状态调整、能量管理、休息恢复",
+      "cases": []
+    },
+    "执行方法": {
+      "description": "具体工具和方法论",
+      "cases": ["case_002"]
+    },
+    "复盘反思": {
+      "description": "日复盘、周复盘、月复盘、年复盘",
+      "cases": []
+    },
+    "工作生活平衡": {
+      "description": "家庭关系、亲子教育、职场平衡",
+      "cases": []
+    }
+  },
+
+  "tags": {
+    "九宫格": ["case_001"],
+    "衣柜整理法": ["case_002"],
+    "拖延": ["case_003"],
+    "心理防御": ["case_003"],
+    "任务分类": ["case_002"],
+    "年度规划": ["case_001"]
+  },
+
+  "difficulty_levels": {
+    "初级": ["case_002"],
+    "中级": ["case_001", "case_003"],
+    "高级": []
+  },
+
+  "case_list": [
+    {
+      "id": "case_001",
+      "title": "目标九宫格方法",
+      "categories": ["目标管理"],
+      "tags": ["九宫格", "年度规划", "平衡人生"],
+      "difficulty": "中级",
+      "applicable_scenarios": [
+        "年度规划不知从何下手",
+        "目标太多不知道怎么分类",
+        "想要平衡人生各个领域"
+      ]
+    },
+    {
+      "id": "case_002",
+      "title": "衣柜整理法（任务管理）",
+      "categories": ["时间管理", "执行方法"],
+      "tags": ["衣柜整理法", "GTD", "任务分类"],
+      "difficulty": "初级",
+      "applicable_scenarios": [
+        "事情很多不知从何下手",
+        "总是被打断",
+        "任务混乱没有分类"
+      ]
+    },
+    {
+      "id": "case_003",
+      "title": "拖延的4种类型与对策",
+      "categories": ["拖延克服", "心理管理"],
+      "tags": ["拖延", "心理防御", "对症下药"],
+      "difficulty": "中级",
+      "applicable_scenarios": [
+        "总是拖延",
+        "知道要做但就是不想动",
+        "自责不自律"
+      ]
+    }
+  ],
+
+  "quick_search": {
+    "拖延": ["case_003"],
+    "目标": ["case_001"],
+    "任务太多": ["case_002"],
+    "年度规划": ["case_001"],
+    "焦虑": ["case_002"],
+    "不知从何下手": ["case_001", "case_002"],
+    "完美主义": ["case_003"]
+  },
+
+  "expansion_plan": {
+    "phase_2": {
+      "description": "从246个文字稿中提取30-40个案例",
+      "priority_topics": [
+        "番茄工作法",
+        "自然计划法",
+        "复盘方法",
+        "精力管理",
+        "时间资源盘点",
+        "GPS方法",
+        "飞机落地法",
+        "四象限法则"
+      ]
+    },
+    "phase_3": {
+      "description": "从wiki和真实对话中提炼案例",
+      "sources": [
+        "wiki/14-answer-examples.md",
+        "wiki/17-real-conversations.md",
+        "wiki/15-learning-log.md"
+      ]
+    }
+  }
+}
