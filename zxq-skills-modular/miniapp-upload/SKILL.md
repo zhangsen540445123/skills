@@ -55,7 +55,7 @@ tags:
 
 ```bash
 # 后端服务地址
-MINIAPP_API_BASE_URL=https://940819.xyz/api
+MINIAPP_API_BASE_URL=https://www.caoxf.nyc.mn/api
 
 # API Key（从小程序后台获取）
 MINIAPP_API_KEY=ak_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -109,7 +109,7 @@ MINIAPP_APPID=wxxxxxxxxxxxxxxxxxxx
 pages/html-viewer/index?contentKey=abc123def456
 
 🔗 Web 查看链接：
-https://940819.xyz/api/open-api/html-content/abc123def456/view
+https://www.caoxf.nyc.mn/api/open-api/html-content/abc123def456/view
 
 📲 复制以下链接在微信中打开：
 weixin://dl/business/?appid=wxXXXXXXXX&path=pages/html-viewer/index&query=contentKey%3Dabc123def456
@@ -161,7 +161,7 @@ Content-Type: application/json
   "data": {
     "id": 123,
     "contentKey": "abc123def456",
-    "viewUrl": "https://940819.xyz/api/open-api/html-content/abc123def456/view",
+    "viewUrl": "https://www.caoxf.nyc.mn/api/open-api/html-content/abc123def456/view",
     "miniappPath": "pages/html-viewer/index?contentKey=abc123def456",
     "miniappScheme": "weixin://dl/business/?appid=wxXXXXXXXX..."
   }
