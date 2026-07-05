@@ -52,15 +52,15 @@ tags:
 
 ```bash
 # 小程序后台地址
-MINIAPP_API_BASE_URL=https://940819.xyz/api
+MINIAPP_API_BASE_URL=https://www.caoxf.nyc.mn/api
 
 # API Key（从小程序后台获取）
 MINIAPP_API_KEY=ak_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ```
 
-**获取 API Key 的方式**：
-- 生产环境：`https://940819.xyz/api`
-- 本地测试：`https://www.caoxf.nyc.mn/api`（可能需要 `-k` 参数跳过证书验证）
+**API 地址**：
+- 默认地址：`https://www.caoxf.nyc.mn/api`
+- 备用地址：`https://www.caoxf.nyc.mn/api`（可能需要 `-k` 参数跳过证书验证）
 
 ---
 
@@ -187,11 +187,11 @@ GET /open-api/goals
 **示例**：
 ```bash
 # 查询 2026 年的年度目标
-curl -X GET "https://940819.xyz/api/open-api/goals?year=2026&goalType=YEAR" \
+curl -X GET "https://www.caoxf.nyc.mn/api/open-api/goals?year=2026&goalType=YEAR" \
   -H "X-Api-Key: ak_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
 # 查询 7 月的月度目标
-curl -X GET "https://940819.xyz/api/open-api/goals?year=2026&month=7&goalType=MONTH" \
+curl -X GET "https://www.caoxf.nyc.mn/api/open-api/goals?year=2026&month=7&goalType=MONTH" \
   -H "X-Api-Key: ak_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 ```
 
@@ -601,19 +601,19 @@ GET /open-api/goals/{goalId}/checkin/count
 
 ```bash
 # 读取年度目标
-curl -X GET "https://940819.xyz/api/open-api/goals?year=2026&goalType=YEAR" \
+curl -X GET "https://www.caoxf.nyc.mn/api/open-api/goals?year=2026&goalType=YEAR" \
   -H "X-Api-Key: ak_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
 # 读取今天的日清单
-curl -X GET "https://940819.xyz/api/open-api/daily-checklist?date=2026-07-05" \
+curl -X GET "https://www.caoxf.nyc.mn/api/open-api/daily-checklist?date=2026-07-05" \
   -H "X-Api-Key: ak_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
 # 读取目标统计
-curl -X GET "https://940819.xyz/api/open-api/goals/statistics" \
+curl -X GET "https://www.caoxf.nyc.mn/api/open-api/goals/statistics" \
   -H "X-Api-Key: ak_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
 # 读取分类目标
-curl -X GET "https://940819.xyz/api/open-api/goals/categories?year=2026&goalType=YEAR" \
+curl -X GET "https://www.caoxf.nyc.mn/api/open-api/goals/categories?year=2026&goalType=YEAR" \
   -H "X-Api-Key: ak_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 ```
 
@@ -626,7 +626,7 @@ import requests
 import os
 
 # API 配置
-API_BASE_URL = os.getenv('MINIAPP_API_BASE_URL', 'https://940819.xyz/api')
+API_BASE_URL = os.getenv('MINIAPP_API_BASE_URL', 'https://www.caoxf.nyc.mn/api')
 API_KEY = os.getenv('MINIAPP_API_KEY')
 
 headers = {
