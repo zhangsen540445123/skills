@@ -76,6 +76,14 @@ Frequency-specific requirements:
 
 Optional habit fields: `habitPrefix`, `habitEncourageText`, `description`, `isFrogGoal`, `icon`.
 
+Semantic inference rules:
+
+- Infer current year/month from explicit phrases such as "this year" and "this month".
+- An inferred habit starts today.
+- Preserve an explicit semantic period by sending `startTime` and `endTime`; use the last second of the stated month or year as `endTime`.
+- Infer target count and unit from phrases such as "10 books" or "100 times".
+- Ask for frequency when the user did not specify a daily, weekly, weekday, or interval schedule.
+
 Example:
 
 ```json

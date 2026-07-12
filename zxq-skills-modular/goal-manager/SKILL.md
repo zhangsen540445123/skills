@@ -27,7 +27,7 @@ Never request, infer, display, or pass an openid, user key, Authorization header
 
 ## Goal Creation
 
-Before creating a goal, explicitly establish:
+Before creating a goal, establish from the user's words or by asking only when it cannot be inferred:
 
 - yearly or monthly goal;
 - target year and, for monthly goals, target month;
@@ -35,9 +35,16 @@ Before creating a goal, explicitly establish:
 - title;
 - one of the nine grid categories.
 
-The category may be inferred from clear semantics. Ask when ambiguous. Do not default the time scope or project/habit type.
+Infer the time scope, project/habit type, category, quantity, unit, and start date when the user's wording makes them clear. Relative phrases use the current local date: "this month" means the current month, "this year" means the current year, and an inferred habit starts today. Ask only for fields that remain genuinely ambiguous.
 
-For a habit goal, also collect the start date, target days or permanent duration, target count and unit, frequency type, and the frequency-specific schedule. Do not call the tool until all required habit fields are known.
+Examples:
+
+- "This month read ten books" means a current-month habit goal, starting today, with target count `10` and suffix `books`.
+- "This year run 100 times" means a current-year habit goal, starting today, with target count `100` and suffix `times`.
+
+For a relative month/year goal, set the explicit `startTime` to today and `endTime` to the final second of that month/year so the Bridge preserves the intended period. Do not ask the user to repeat a time scope already present in the request.
+
+For a habit goal, also establish the target days or permanent duration, target count and unit, frequency type, and frequency-specific schedule. Frequency must still be asked when the wording does not determine `DAILY`, `WEEKLY`, or `PERIOD`; never invent a schedule.
 
 The current API cannot move a goal to another year, month, or grid category. Tell the user to use the miniapp for such moves. Do not emulate a move by deleting and recreating the goal.
 
