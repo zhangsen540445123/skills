@@ -19,8 +19,8 @@
 在使用前，需要配置环境变量：
 
 ```bash
-# 后端服务地址（默认：https://940819.xyz/api）
-export MINIAPP_API_BASE_URL=https://940819.xyz/api
+# 后端服务地址（默认：https://www.caoxf.nyc.mn/api）
+export MINIAPP_API_BASE_URL=https://www.caoxf.nyc.mn/api
 
 # API Key（必需，从小程序后台获取）
 export MINIAPP_API_KEY=ak_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -114,10 +114,10 @@ set MINIAPP_APPID=wxxxxxxxxxxxxxxxxxxx
 pages/html-viewer/index?contentKey=abc123def456789
 
 🔗 Web 查看链接：
-https://940819.xyz/api/open-api/html-content/abc123def456789/view
+https://www.caoxf.nyc.mn/api/open-api/html-content/abc123def456789/view
 
 📲 微信跳转链接：
-weixin://dl/business/?appid=wxXXXXXXXX&path=pages/html-viewer/index&query=contentKey%3Dabc123def456789
+weixin://dl/business/?appid=wxd3578c75e67172b3&path=pages/html-viewer/index&query=contentKey%3Dabc123def456789
 
 💡 提示：复制上面的链接在微信中打开，即可跳转到小程序查看
 ```

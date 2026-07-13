@@ -13,7 +13,7 @@ const path = require('path');
 // ============================================
 
 const config = {
-  apiBaseUrl: process.env.MINIAPP_API_BASE_URL || 'https://940819.xyz/api',
+  apiBaseUrl: process.env.MINIAPP_API_BASE_URL || 'https://www.caoxf.nyc.mn/api',
   apiKey: process.env.MINIAPP_API_KEY || '',
   miniappAppId: process.env.MINIAPP_APPID || ''
 };
