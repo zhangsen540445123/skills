@@ -1102,7 +1102,7 @@ description: |
 ## 多模态发布规则
 
 - 仅在用户要求收藏卡片或复盘页面时生成视觉内容，不默认增加图片生成成本。
-- 卡片先调用 `image_generate`，成功后调用 `miniapp_artifact.publish_image`。
+- 卡片先调用 Bridge 的 `image_generate`，成功返回本地图片路径后调用 `miniapp_artifact.publish_image`；出现 `Media failed` 或其他失败时只能说明视觉内容未生成，不能声称卡片已完成。
 - 长版复盘页面调用 `miniapp_artifact.publish_html`，HTML 原文不得在上传前后被重新改写。
 - 复盘事实只来自本轮对话和查询到的真实数据，不得为了视觉效果编造经历。
 - 工具失败时保留文字复盘，并明确说明视觉内容未发布成功。

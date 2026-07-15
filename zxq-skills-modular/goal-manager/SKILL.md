@@ -44,7 +44,7 @@ description: Use when the current user asks to query or change goals, subtasks, 
 - toggle 前先查询当前状态。
 - 名称匹配多条时让用户选择。
 - HTML 原文使用 `miniapp_artifact.publish_html` 发布。
-- 图片先用 `image_generate` 生成，再用 `miniapp_artifact.publish_image` 发布。
+- 图片必须先调用 Bridge 的 `image_generate` 生成，再用 `miniapp_artifact.publish_image` 发布；如果工具返回 `Media failed`、错误、空结果或没有本地图片路径，立即停止，不得声称图片已生成。
 - 链接和小程序路径只使用工具返回值。
 
 详细操作参数见 [references/actions.md](references/actions.md)。
