@@ -1,5 +1,5 @@
 ---
-name: goal-to-project-habit-plan
+name: goal-to-plan
 description: |
   强哥《只管去做》从愿景到行动系统的第三步：把目标九宫格里的目标落地成计划。目标只分为两类：项目型目标和习惯型目标。习惯型目标如果已经足够 SMART，就直接进入计划，只补充提醒节奏；项目型目标由用户先用语音或文字说出倒推计划，AI 再整理成项目计划 1.0。最终输出项目子任务、习惯提醒节奏、小程序回传 JSON，以及一张计划总览 H5/图片。结束时询问用户是否继续规划下一周。
   Use this skill after the annual or monthly goal grid is confirmed and the user wants to turn goals into executable project plans and habit plans.
@@ -720,6 +720,16 @@ C. 自己填一个日期
 
 最终需要生成可回传小程序的数据。
 
+## 硬规则：覆盖风险二次确认
+
+生成回传数据并真正写入 / 更新目标九宫格小程序前，必须先让用户再次确认，并明确提醒：
+
+> 这次更新有可能会覆盖小程序里已有的旧数据。
+
+例如：项目子任务、习惯提醒节奏已经回传过，再次回传可能改掉原先数据。
+
+未获用户明确确认（如“确认回传 / 可以覆盖更新”）前，不得执行写入。可先展示将回传的摘要，再等确认。
+
 ## 总结构
 
 ```json
@@ -883,3 +893,11 @@ C. 自己填一个日期
 - “我帮你整理成 1.0，再给你确认”
 - “项目看进度，习惯看节奏”
 - “下一步可以落到你的明天”
+
+## 多模态发布规则
+
+- 计划数据确认后，先通过 `miniapp_goal`、`miniapp_subtask`、`miniapp_daily_task` 写入真实业务数据。
+- 计划总览图片必须调用 `image_generate`，成功后调用 `miniapp_artifact.publish_image`。
+- 计划总览 H5 必须生成完整 HTML 原文并调用 `miniapp_artifact.publish_html`。
+- 发布结果由工具返回的 `miniappPath`/`viewUrl` 为准，不拼接或猜测链接。
+- 不得把原始 JSON 直接当最终答复，应汇总为自然语言并提供生成内容入口。

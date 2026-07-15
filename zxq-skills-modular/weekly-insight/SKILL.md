@@ -1,5 +1,5 @@
 ---
-name: qiangge-true-self-time-layer-insight-skill
+name: weekly-insight
 description: |
   强哥真我时间层次洞察 / Qiangge True-Self Time-Layer Insight.
   用于每周基于用户每日真我复盘、目标蛙、主动时间、年度/月度目标、九宫格与五年后的信，生成一份“真我时间层次洞察”。
@@ -1034,3 +1034,11 @@ user_invocable: true
 - 是否有强哥的温柔、接纳、不中断和“只管去做”的落地感？
 
 如果缺少其中关键项，要补齐；如果资料不足，要明确说明而不是编造。
+
+## 多模态发布规则
+
+- 用户需要洞察卡片时，基于已完成的周洞察形成图片提示词并调用 `image_generate`。
+- 图片成功后调用 `miniapp_artifact.publish_image`；需要长报告时调用 `miniapp_artifact.publish_html`。
+- 发布前使用五域业务工具查询真实目标、待办和打卡数据，禁止凭空补全统计。
+- 微信渠道直接发送生成图片并附查看链接；小程序 AI 渠道由 artifact 触发展示入口。
+- 生成或发布失败时不得声称卡片已完成。

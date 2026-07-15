@@ -33,6 +33,23 @@ All calls use:
 | `goal_categories` | `year?`, `month?`, `goalType?` | Categorized goals |
 | `goal_category_list` | `category`, `year?`, `month?`, `goalType?` | Goals in one category |
 
+### Goal creation contract
+
+All dates use `yyyy-MM-dd`; date-times use `yyyy-MM-dd HH:mm:ss`.
+
+- `goalType`: `YEAR` or `MONTH`; monthly goals require `goalMonth`, yearly goals must omit it.
+- `goalCategory`: `PROJECT` or `HABIT`.
+- `category`: `study`, `experience`, `relax`, `family`, `core`, `work`, `social`, `finance`, `health`.
+- Project creation requires `title`, `goalType`, `goalYear`, `goalCategory=PROJECT`, and `category`.
+- Habit creation additionally requires `habitStartDate`, `habitTargetDays`, `habitTargetCount`, `habitSuffix`, and `habitFrequencyType`.
+- `habitTargetDays=-1` means permanent duration.
+- `DAILY` requires `habitDailyWeekDays`; `WEEKLY` requires `habitWeeklyDays`; `PERIOD` requires `habitIntervalDays`.
+- Optional habit fields include `habitPrefix` and `habitEncourageText`.
+
+Infer explicit natural-language scope, type, quantity, unit, and start date before calling the tool. For example, “今年跑步 100 次” becomes a yearly habit with `habitTargetCount=100`, `habitSuffix=次`, and a start date of today. Ask only for frequency or other fields that remain genuinely ambiguous.
+
+Supported goal updates include title/content, description, status, priority, deadline, progress, frog flag, start/end time, icon, habit fields, completion summary, and clearing habit configuration. Moving a goal across year, month, or grid category is unsupported; direct the user to the miniapp instead of deleting and recreating it.
+
 ## Subtasks
 
 | Action | Parameters | Purpose |
@@ -62,3 +79,12 @@ All calls use:
 | `html_list` | none | List the user's HTML content |
 | `html_get` | `contentKey` | Get full HTML when the user needs to inspect or display it |
 | `html_delete` | `contentKey` | Delete after confirmation |
+
+## Artifact publishing
+
+| Tool operation | Parameters | Purpose |
+|---|---|---|
+| `miniapp_artifact.publish_image` | `localPath`, `title?`, `description?` | Publish an `image_generate` result and create a miniapp display page |
+| `miniapp_artifact.publish_html` | `htmlContent`, `title?`, `contentKey?` | Publish exact HTML and return trusted navigation metadata |
+
+Identity and authentication fields are never tool parameters. Links and miniapp paths must come from the Tool Result.
