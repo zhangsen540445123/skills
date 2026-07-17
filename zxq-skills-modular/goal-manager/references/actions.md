@@ -84,7 +84,7 @@ Supported goal updates include title/content, description, status, priority, dea
 
 | Tool operation | Parameters | Purpose |
 |---|---|---|
-| `miniapp_artifact.publish_image` | `localPath`, `title?`, `description?` | Publish an `image_generate` result and create a miniapp display page |
+| `miniapp_artifact.publish_image` | `generatedImageId`, `title?`, `description?` | Publish an `image_generate` result and create a miniapp display page; `localPath` is only for direct WeChat media sending |
 | `miniapp_artifact.publish_html` | `htmlContent`, `title?`, `contentKey?` | Publish exact HTML and return trusted navigation metadata |
 
 Identity and authentication fields are never tool parameters. Links and miniapp paths must come from the Tool Result.

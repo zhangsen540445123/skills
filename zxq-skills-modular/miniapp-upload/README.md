@@ -2,7 +2,7 @@
 
 该 Skill 使用 OpenClaw 内的 sender-scoped `miniapp_artifact` 工具发布 AI 生成的图片或 HTML。
 
-- 图片先由 `image_generate` 生成，再调用 `publish_image`。
+- 图片先由 `image_generate` 生成，再将返回的 `generatedImageId` 传给 `publish_image`；`localPath` 仅用于微信渠道直接发送图片。
 - HTML 使用 `publish_html` 原文发布。
 - openid、`cm_user` 和服务地址由 Claw Manager 根据当前发送者自动映射。
 - 不需要也不允许在 Skill 中配置 API Key、openid 或 Authorization。

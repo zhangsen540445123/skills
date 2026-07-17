@@ -897,7 +897,7 @@ C. 自己填一个日期
 ## 多模态发布规则
 
 - 计划数据确认后，先通过 `miniapp_goal`、`miniapp_subtask`、`miniapp_daily_task` 写入真实业务数据。
-- 计划总览图片必须调用 Bridge 的 `image_generate`，确认返回真实本地图片路径后再调用 `miniapp_artifact.publish_image`；任何 `Media failed` 或工具错误都表示图片未生成，不得继续发布或声称成功。
+- 计划总览图片必须调用 Bridge 的 `image_generate`，确认返回 `generatedImageId` 后，将该 ID 传给 `miniapp_artifact.publish_image`；`localPath` 仅用于微信渠道直接发送图片，不得作为 Artifact 参数。任何 `Media failed` 或工具错误都表示图片未生成，不得继续发布或声称成功。
 - 计划总览 H5 必须生成完整 HTML 原文并调用 `miniapp_artifact.publish_html`。
 - 发布结果由工具返回的 `miniappPath`/`viewUrl` 为准，不拼接或猜测链接。
 - 不得把原始 JSON 直接当最终答复，应汇总为自然语言并提供生成内容入口。

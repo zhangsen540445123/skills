@@ -1052,7 +1052,7 @@ AI 可以帮助用户看见，但不能替用户决定。
 ## 多模态发布规则
 
 - 用户确认愿景内容并要求愿景版图片时，先生成完整图片提示词，再实际调用 Bridge 的 `image_generate`。
-- 只有 `image_generate` 成功并返回生成附件的本地路径后，才能调用 `miniapp_artifact.publish_image`；出现 `Media failed`、空结果或其他错误时，必须停止并明确说明图片未生成。
+- 只有 `image_generate` 成功并返回 `generatedImageId` 后，才能将该 ID 传给 `miniapp_artifact.publish_image`；`localPath` 仅用于微信渠道直接发送图片，不得作为 Artifact 参数。出现 `Media failed`、空结果或其他错误时，必须停止并明确说明图片未生成。
 - 需要可滚动阅读的信件页面时，生成完整 HTML 原文并调用 `miniapp_artifact.publish_html`。
 - 工具失败时明确说明失败，不得只返回提示词却声称图片或页面已经生成。
 - 业务事实来自已确认的对话内容，不得为增强画面而编造用户经历。

@@ -1038,7 +1038,7 @@ user_invocable: true
 ## 多模态发布规则
 
 - 用户需要洞察卡片时，基于已完成的周洞察形成图片提示词并调用 Bridge 的 `image_generate`。
-- 只有 `image_generate` 返回真实本地图片路径后才能调用 `miniapp_artifact.publish_image`；返回 `Media failed`、错误或空结果时必须停止并说明图片未生成。需要长报告时调用 `miniapp_artifact.publish_html`。
+- 只有 `image_generate` 返回 `generatedImageId` 后才能将该 ID 传给 `miniapp_artifact.publish_image`；`localPath` 仅用于微信渠道直接发送图片，不得作为 Artifact 参数。返回 `Media failed`、错误或空结果时必须停止并说明图片未生成。需要长报告时调用 `miniapp_artifact.publish_html`。
 - 发布前使用五域业务工具查询真实目标、待办和打卡数据，禁止凭空补全统计。
 - 微信渠道直接发送生成图片并附查看链接；小程序 AI 渠道由 artifact 触发展示入口。
 - 生成或发布失败时不得声称卡片已完成。
