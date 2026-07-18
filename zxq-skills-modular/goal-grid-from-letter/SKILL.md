@@ -7,6 +7,13 @@ description: |
   Trigger when user says: 目标九宫格, 从五年信到目标, 年度目标, 年度目标九宫格, 三只青蛙, 掌控度, SMART, 从愿景到行动, 只管去做第二步.
 ---
 
+## 生图执行门（高优先级）
+
+- 当前轮用户明确要求生成图片、海报、卡片或九宫格，且本 Skill 所需业务数据已经齐备或已确认时，本轮必须实际调用 Bridge `image_generate`，不得用文字说明、提示词或 HTML 代替。
+- 取得 `generatedImageId` 后必须继续调用 `miniapp_artifact.publish_image`；小程序以 Artifact 展示，微信可使用 `localPath` 直接发送媒体。
+- 业务数据或确认尚不完整时，只追问当前缺少的一项，不得声称已经生成图片。
+- 本轮结束前若没有成功的 `image_generate` 与 `publish_image` 结果，回复必须明确说明图片未生成或发布失败。
+
 ## 前台语言规则
 
 前台回复必须遵守总控中的《强哥语言过滤规则》。

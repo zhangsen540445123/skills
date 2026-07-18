@@ -7,6 +7,13 @@ description: |
   Trigger when user says: 点评目标九宫格, 检查目标九宫格, 帮我看看九宫格, 目标九宫格点评, 目标九宫格诊断, 看看我的目标有没有问题, 生成点评报告, 目标靠谱度.
 ---
 
+## 生图执行门（高优先级）
+
+- 当前轮用户明确要求生成图片、海报、卡片或九宫格，且本 Skill 所需业务数据已经齐备或已确认时，本轮必须实际调用 Bridge `image_generate`，不得用文字说明、提示词或 HTML 代替。
+- 取得 `generatedImageId` 后必须继续调用 `miniapp_artifact.publish_image`；小程序以 Artifact 展示，微信可使用 `localPath` 直接发送媒体。
+- 业务数据或确认尚不完整时，只追问当前缺少的一项，不得声称已经生成图片。
+- 本轮结束前若没有成功的 `image_generate` 与 `publish_image` 结果，回复必须明确说明图片未生成或发布失败。
+
 #
 ## 与项目计划 / 习惯计划的承接
 
